@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Response</title>
+    <link rel="stylesheet" href="/css/styles.css">
+
+</head>
+<body>
+    <div class="container">
+        <div class="books-list"> 
+            <h2 class="book-sel-text">Select a Book :</h2>
+            <% pdfFolders.forEach(pdf => { %>
+                <a class="a-booklist" onclick="selectBook(this)" href="/open?pdf=<%= encodeURIComponent(pdf) %>"><%= pdf %></a><br>
+            <% }); %>
+        </div>
+
+        <div class="pdf-viewer">
+            <iframe id="pdfViewer"></iframe> 
+        </div>
+
+        <div class="question-answer">
+            <h2 id="question-text">Ask a Question :</h2>
+            <form id="questionForm" method="GET">
+                <input type="text" name="question" id="question" placeholder="Message DynamoLearn..">
+                <input type="hidden" name="pdf" id="selectedPdf">
+                <!-- <button type="button" id="submitBtn">Submit</button> -->
+                <button type="button" id="submitBtn" class="relative -left-20 pl-10">
+                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24"
+                            stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-1" height="1em" width="1em"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <line x1="22" y1="2" x2="11" y2="13"></line>
+                            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+                        </svg>
+                </button>
+            </form>
+            <hr>
+            <h1 class="response-div"><%= resText %></h1>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to update the PDF viewer iframe and selected PDF value
+        document.querySelectorAll('.books-list a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pdfName = this.textContent;
+                const pdfUrl = `/pdfs/${encodeURIComponent(pdfName)}`;
+                document.getElementById('pdfViewer').src = pdfUrl;
+                document.getElementById('selectedPdf').value = pdfName;
+            });
+        });
+
+        // JavaScript to handle form submission
+        document.getElementById('submitBtn').addEventListener('click', function() {
+            const question = document.getElementById('question').value;
+            const selectedPdf = document.getElementById('selectedPdf').value;
+            const url = `/ask?question=${encodeURIComponent(question)}&pdf=${encodeURIComponent(selectedPdf)}`;
+            window.location.href = url;
+        });
+
+
+        //added after for selection of the Book in the stady order
+        function selectBook(link) {
+        const selectedPdf = link.getAttribute('data-pdf');
+        document.querySelectorAll('.a-booklist').forEach(item => {
+            item.classList.remove('selected');
+        });
+        link.classList.add('selected');
+        const pdfUrl = `/pdfs/${encodeURIComponent(selectedPdf)}`;
+        document.getElementById('pdfViewer').src = pdfUrl;
+        document.getElementById('selectedPdf').value = selectedPdf;
+        }
+
+        
+        
+        
+        // // Other JavaScript code...
+        
+</script>
+
+    </script>
+</body>
+</html>

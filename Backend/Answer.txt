@@ -1,0 +1,22 @@
+## Bing
+Certainly! In a circuit switching network, let's break it down:
+- Definition:
+    - Circuit switching is a method used in telecommunications networks where two nodes (such as phones or computers) establish a dedicated communications channel (referred to as a "circuit") through the network before they can communicate.
+    - Once established, this circuit guarantees the full bandwidth of the channel and remains connected for the entire duration of the communication session .
+- How It Works:
+    - When two devices want to communicate, they set up a dedicated path (circuit) between them.
+    - This path remains open throughout the conversation, ensuring a constant data rate.
+    - Data can be transmitted without any delays once the circuit is established.
+    - Think of it like an old-school telephone call: when you pick up the phone, a circuit is created, and you can talk without interruptions until you hang up.
+- Advantages:
+    - Guaranteed Data Rate: The dedicated circuit ensures a consistent data rate.
+    - Predictable Delay: Bit delay remains constant during the connection.
+    - Stable Connection: Once established, the circuit remains connected until termination.
+- Drawbacks:
+    - Inefficient Resource Use: Resources (such as bandwidth and switch ports) are reserved along the entire path, even during periods of low or no communication.
+    - Limited Scalability: Not suitable for large-scale networks due to the need for dedicated paths between every pair of nodes.
+    - Vulnerability to Failures: Dedicated paths can make the network susceptible to cable cuts or switch failures.
+    - Delay and Latency: Establishing the circuit introduces delay.
+    - High Cost: Resource reservation can be expensive.
+    - Lack of Flexibility: Only allows one type of communication at a time (e.g., voice or data).
+In summary, circuit switching provides a stable, predictable connection but comes with trade-offs in terms of resource usage and scalability. It's like having a direct phone line—reliable but not always efficient for large networks! 📞🌐
