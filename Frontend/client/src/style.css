@@ -1,0 +1,66 @@
+.split-layout {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .left-pane {
+    width: 60%;
+    background-color: #130552;
+    padding: 20px;
+    color: white;
+    
+  }
+  .left-pane .float-text {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    margin-top: 11rem;
+    text-align: left; 
+    font-size: 29px;
+  }
+  
+  .right-pane {
+    width: 40%;
+    background-color: #000000;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .auth-pannel button {
+    padding: 10px 70px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: rgba(60,70,255,var(--tw-bg-opacity));
+    --tw-bg-opacity :1;
+    color:#ffffff;
+    font-weight: 500;
+  }
+  
+  .auth-pannel button:hover {
+    background-color:#2b3297;
+    color: #ffffff;
+  }
+  
+  .get-started {
+
+    text-align: center;
+    color: white;
+    font-size: 32px;
+  }
+
+  .auth-pannel .dyno-logo {
+
+
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5rem;
+    width: 50%;
+    /* padding: 10px; */
+  }
